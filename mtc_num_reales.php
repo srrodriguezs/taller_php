@@ -62,38 +62,46 @@ class Medidas_Tendencia_Central {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medidas de Tendencia Central</title>
+    <link rel="stylesheet" href="CSS\mtc_num_reales.css">
 </head>
 <body>
-    <h1>Medidas de Tendencia Central</h1>
-    <form method="post">
-        <label for="n">Cantidad de números:</label>
-        <input type="number" id="n" name="n" min="1" required>
-        <br><br>
-        <label for="numeros">Ingrese los números separados por comas:</label>
-        <input type="text" id="numeros" name="numeros" required>
-        <br><br>
-        <button type="submit">Calcular</button>
-    </form>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $n = isset($_POST["n"]) ? (int)$_POST["n"] : 0;
-        $numeros = isset($_POST["numeros"]) ? array_map('floatval', explode(',', $_POST["numeros"])) : [];
+    <div class="contenedor">
+        <div class="card">
+            <h1>Medidas de Tendencia Central</h1>
+            <form method="post">
+                <div class="grupo">
+                    <label for="n">Cantidad de números:</label>
+                    <input type="number" id="n" name="n" min="1" required>
+                </div>
+                <div class="grupo">
+                    <label for="numeros">Ingrese los números separados por comas:</label>
+                    <input type="text" id="numeros" name="numeros" required>
+                </div>
+                <button type="submit" class="btn">Calcular</button>
+            </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $n = isset($_POST["n"]) ? (int)$_POST["n"] : 0;
+                $numeros = isset($_POST["numeros"]) ? array_map('floatval', explode(',', $_POST["numeros"])) : [];
 
-        if (count($numeros) !== $n) {
-            echo "<p>El número de valores ingresados no coincide con la cantidad especificada.</p>";
-        } else {
-            $medidas = new Medidas_Tendencia_Central($n, $numeros);
-            echo "<p>Media: " . $medidas->calcularMedia() . "</p>";
-            echo "<p>Mediana: " . $medidas->calcularMediana() . "</p>";
-            $moda = $medidas->calcularModa();
-            if (empty($moda)) {
-                echo "<p>Moda: No hay moda</p>";
-            } else {
-                echo "<p>Moda: " . implode(', ', $moda) . "</p>";
+                if (count($numeros) !== $n) {
+                    echo "<div class='error'>El número de valores ingresados no coincide con la cantidad especificada.</div>";
+                } else {
+                    $medidas = new Medidas_Tendencia_Central($n, $numeros);
+                    echo "<div class='resultado'>";
+                    echo "<p><strong>Media:</strong> " . $medidas->calcularMedia() . "</p>";
+                    echo "<p><strong>Mediana:</strong> " . $medidas->calcularMediana() . "</p>";
+                    $moda = $medidas->calcularModa();
+                    if (empty($moda)) {
+                        echo "<p><strong>Moda:</strong> No hay moda</p>";
+                    } else {
+                        echo "<p><strong>Moda:</strong> " . implode(', ', $moda) . "</p>";
+                    }
+                    echo "</div>";
+                }
             }
-        }
-    }
-?>
-</body>
-</html>
+            ?>
+        </div>
+    </div>

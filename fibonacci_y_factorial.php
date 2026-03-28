@@ -38,42 +38,51 @@ class Fibonacci {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sucesión de Fibonacci</title>
+    <link rel="stylesheet" href="CSS\fibonacci_y_factorial.css">
 </head>
 <body>
-    <h1>Sucesión de Fibonacci</h1>
-    <form method="post">
-        <label>Número:</label>
-        <input type="number" name="numero" min="0" required>
-        <br><br>
-        <label>Operación:</label>
-        <select name="operacion">
-            <option value="fibonacci">Sucesión de Fibonacci</option>
-            <option value="factorial">Factorial</option>
-        </select>
-        <br><br>
-        <button type="submit">Calcular</button>
-    </form>
-    <?php
-    $resultado = "";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $numero = isset($_POST["numero"]) ? (int)$_POST["numero"] : 0;
-        $operacion = $_POST["operacion"] ?? "";
+    <div class="contenedor">
+        <div class="card">
+            <h1>Sucesión de Fibonacci y Factorial</h1>
+            <form method="post">
+                <div class="grupo">
+                    <label>Número:</label>
+                    <input type="number" name="numero" min="0" required>
+                </div>
+                <div class="grupo">
+                    <label>Operación:</label>
+                    <select name="operacion">
+                        <option value="fibonacci">Sucesión de Fibonacci</option>
+                        <option value="factorial">Factorial</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Calcular</button>
+            </form>
+            <?php
+            $resultado = "";
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $numero = isset($_POST["numero"]) ? (int)$_POST["numero"] : 0;
+                $operacion = $_POST["operacion"] ?? "";
 
-        if ($numero < 0) {
-            $resultado = "El número debe ser mayor o igual a 0.";
-        } else {
-            if ($operacion == "fibonacci") {
-                $serie = Fibonacci::generarFibonacci($numero);
-                $resultado = "Serie de Fibonacci (primeros $numero términos): " . implode(", ", $serie);
-            } elseif ($operacion == "factorial") {
-                $fact = Fibonacci::calcularFactorial($numero);
-                $resultado = "Factorial de $numero: $fact";
-            } else {
-                $resultado = "Operación no válida.";
+                if ($numero < 0) {
+                    $resultado = "El número debe ser mayor o igual a 0.";
+                } else {
+                    if ($operacion == "fibonacci") {
+                        $serie = Fibonacci::generarFibonacci($numero);
+                        $resultado = "Serie de Fibonacci (primeros $numero términos): " . implode(", ", $serie);
+                    } elseif ($operacion == "factorial") {
+                        $fact = Fibonacci::calcularFactorial($numero);
+                        $resultado = "Factorial de $numero: $fact";
+                    } else {
+                        $resultado = "Operación no válida.";
+                    }
+                }
             }
-        }
-    }
-    echo "<p>$resultado</p>";
-    ?>
-</body>
+            if ($resultado) {
+                echo "<div class='resultado'>$resultado</div>";
+            }
+            ?>
+        </div>
+    </div>
