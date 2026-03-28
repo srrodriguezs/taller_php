@@ -77,5 +77,6 @@ class Conjuntos_AB {
                 echo "</div>";
             }
             ?>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>

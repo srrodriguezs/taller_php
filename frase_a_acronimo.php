@@ -54,6 +54,7 @@ class FraseAcronym {
                 echo "<div class='resultado'>El acrónimo de '$frase' es: " . $acronimo->getAcronimo() . "</div>";
             }
             ?>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>
 </body>

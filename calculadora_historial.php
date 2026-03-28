@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="historial">
             <h2>Historial</h2>
             <?php if (empty($_SESSION['historial'])): ?>
-                <p style="color: #999;">No hay operaciones aún</p>
+                <p class="no-historial">No hay operaciones aún</p>
             <?php else: ?>
                 <?php foreach ($_SESSION['historial'] as $item): ?>
                     <div class="historial-item"><?php echo htmlspecialchars($item); ?></div>
@@ -101,10 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="contador">
                 Total de operaciones: <?php echo count($_SESSION['historial']); ?>
             </div>
-            <form method="POST" style="margin-top: 0;">
+            <form method="POST" class="form-limpiar">
                 <input type="hidden" name="action" value="limpiar_historial">
                 <button type="submit" class="btn-limpiar">Borrar Historial</button>
             </form>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>
 </body>

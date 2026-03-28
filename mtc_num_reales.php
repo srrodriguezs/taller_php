@@ -103,5 +103,6 @@ class Medidas_Tendencia_Central {
                 }
             }
             ?>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>

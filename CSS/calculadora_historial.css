@@ -98,11 +98,36 @@ button {
 .btn-limpiar:hover {
     background: #c0392b;
 }
+.no-historial {
+    color: #999;
+}
+.form-limpiar {
+    margin-top: 0;
+}
 .contador {
     text-align: center;
     color: #666;
     font-size: 14px;
     margin-top: 10px;
+}
+.btn-regresar {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.btn-regresar:hover {
+    background: #218838;
 }
 @media (max-width: 600px) {
     .contenedor {

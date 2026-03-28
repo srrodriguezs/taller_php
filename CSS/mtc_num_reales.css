@@ -84,3 +84,22 @@ button:hover {
     color: #721c24;
     font-size: 16px;
 }
+.btn-regresar {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.btn-regresar:hover {
+    background: #218838;
+}

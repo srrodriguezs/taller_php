@@ -84,5 +84,6 @@ class Fibonacci {
                 echo "<div class='resultado'>$resultado</div>";
             }
             ?>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>

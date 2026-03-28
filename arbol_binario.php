@@ -242,6 +242,7 @@ class Arbol_Binario {
         <h3>Representación del árbol:</h3>
         <pre><?php echo $arbol->imprimirArbol(); ?></pre>
     <?php endif; ?>
+    <a href="index.php" class="btn-regresar">Regresar al Menú</a>
 </body>
 <script>
 function updatePlaceholder(select, inputName) {

@@ -46,5 +46,6 @@ class Conversion {
                 echo "<div class='resultado'>El número entero '$numero' en binario es: " . $conversion->convertirABinario() . "</div>";
             }
             ?>
+            <a href="index.php" class="btn-regresar">Regresar al Menú</a>
         </div>
     </div>
