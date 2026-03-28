@@ -16,10 +16,12 @@ class FraseAcronym {
 
 
     private static function frase_a_acronimo($frase) {
-        $palabras = explode(' ', $frase);
+        $palabras = preg_split('/[\s\-_]+/', $frase);
         $acronimo = '';
         foreach ($palabras as $palabra) {
-            $acronimo .= strtoupper($palabra[0]);
+            if (!empty($palabra)) {
+                $acronimo .= strtoupper($palabra[0]);
+            }
         }
         return $acronimo;
     }
