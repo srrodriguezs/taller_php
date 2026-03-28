@@ -1,5 +1,4 @@
 <?php
-
 class FraseAcronym {
     private String $frase;
 
@@ -25,14 +24,27 @@ class FraseAcronym {
         return $acronimo;
     }
 }
-
-class Main {
-    public static function main() {
-        $frase = "Hola Mundo";
-        $acronimo = new FraseAcronym($frase);
-        echo "El acrónimo de '$frase' es: " . $acronimo->getAcronimo();
-    }
-}
-
-Main::main();
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Frase a Acronimo</title>
+</head>
+<body>
+    <h1>Frase a Acrónimo</h1>
+    <form method="post">
+        <label for="frase">Ingrese una frase:</label>
+        <input type="text" id="frase" name="frase" required>
+        <button type="submit">Convertir a Acrónimo</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $frase = $_POST["frase"];
+        $acronimo = new FraseAcronym($frase);
+        echo "<p>El acrónimo de '$frase' es: " . $acronimo->getAcronimo() . "</p>";
+    }
+    ?>
+</body>
+</html>
