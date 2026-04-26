@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     break;
                 case '%':
-                    $resultado = $num1 % $num2;
+                    $resultado = ($num1 * $num2) / 100;
                     break;
                 default:
                     $valido = false;
